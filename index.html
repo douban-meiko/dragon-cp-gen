@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>㊙️</title>
+    <style>
+      html,
+      body {
+        background: #df1979;
+        color: #000;
+        height: 100%;
+        font-size: 30px;
+        font-family: "Verdana";
+      }
+
+      #box {
+        padding: 10px 30px;
+        border: 8px solid #000;
+      }
+
+      #x {
+        margin-left: 40px;
+        margin-right: 40px;
+        font-size: 42px;
+      }
+
+      .name {
+        color: white;
+        text-align: center;
+      }
+
+      /* CSS */
+      #gen-button {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 14px 24px;
+        border: none;
+        transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+          -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+        background: linear-gradient(to right, #000 0%, #005 50%, #010 100%);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        height: 100%;
+      "
+    >
+      <div
+        id="box"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 300px;
+        "
+      >
+        <div class="name" id="a" style="width: 150px">?</div>
+        <div id="x">X</div>
+        <div class="name" id="b" style="width: 150px">?</div>
+      </div>
+      <div style="height: 50px">
+        <button id="gen-button" onclick="onGen()">生 ❤️ 成</button>
+      </div>
+    </div>
+    <script>
+      const people = [
+        "王🐰",
+        "XXZ🐟",
+        "MK🦒",
+        "蟹🦀️",
+        "狗🐶",
+        "鼓🥁",
+        "⭕️氪",
+        "麦❕",
+        "鲨🦈",
+        "月🌛",
+        "左⬅️",
+        "豚🐢",
+        "康📷",
+      ];
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function gen() {
+        const a = getRandomInt(13);
+        let b;
+        while (true) {
+          b = getRandomInt(13);
+          if (b != a) {
+            break;
+          }
+        }
+        document.getElementById("a").innerHTML = people[a];
+        document.getElementById("b").innerHTML = people[b];
+      }
+
+      function onGen() {
+        gen();
+        let i = 0;
+        gen();
+        setTimeout(function (x) {
+          document.getElementById("gen-button").style =
+            "display: inline-block;";
+        }, 19 * 100 + 5);
+
+        while (i < 20) {
+          setTimeout(function (x) {
+            gen();
+            document.getElementById("gen-button").style = "display: none;";
+            document.getElementById("gen-button").innerHTML = "再 💔 来";
+          }, i * 100);
+          i++;
+        }
+      }
+    </script>
+  </body>
+</html>
